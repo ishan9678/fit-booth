@@ -2,7 +2,7 @@ import 'dotenv/config';
 import { defineConfig } from 'drizzle-kit';
 
 export default defineConfig({
-  out: './drizzle',
+  out: './db/migrations',
   schema: './db/schema/index.ts',
   dialect: 'postgresql',
     dbCredentials: {
@@ -11,5 +11,10 @@ export default defineConfig({
     user: process.env.PGUSER!,
     password: process.env.PGPASSWORD!,
     database: process.env.PGDATABASE!,
+    ssl: false
+  },
+   migrations: {
+    table: 'drizzle_migrations',
+    schema: "public",
   },
 });

@@ -9,6 +9,7 @@ const pool = new Pool({
   user: process.env.PGUSER!,
   password: process.env.PGPASSWORD!,
   database: process.env.PGDATABASE!,
+  ssl: false
 });
 
 export const db: any = drizzle(pool, { schema });
